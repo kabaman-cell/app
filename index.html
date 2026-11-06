@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12243a">
+  <meta name="description" content="Gestion commerciale et calcul des coûts pour KABAMAN.">
+  <title>KABAMAN — Gestion commerciale</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">K</div>
+        <div><strong>KABAMAN</strong><span>GESTION COMMERCIALE</span></div>
+      </div>
+      <div class="nav-label">ESPACE DE TRAVAIL</div>
+      <nav class="nav-list" aria-label="Navigation principale">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">◫</span><span>Vue d’ensemble</span></button>
+        <button class="nav-item" data-page="calculator"><span class="nav-icon">＋</span><span>Calcul des coûts</span></button>
+        <button class="nav-item" data-page="catalog"><span class="nav-icon">▦</span><span>Produits & stock</span></button>
+        <button class="nav-item" data-page="invoices"><span class="nav-icon">▤</span><span>Factures</span></button>
+        <button class="nav-item" data-page="sales"><span class="nav-icon">↗</span><span>Ventes</span></button>
+        <button class="nav-item" data-page="analytics"><span class="nav-icon">▥</span><span>Rentabilité</span></button>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span><span>Paramètres</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="local-badge"><span class="status-dot"></span><div><strong>Données locales</strong><small>Enregistrées dans ce navigateur</small></div></div>
+        <button class="side-action" id="backup-button">⇩ &nbsp; Sauvegarder mes données</button>
+        <button class="side-action" id="restore-button">⇧ &nbsp; Restaurer une sauvegarde</button>
+        <input id="restore-file" type="file" accept=".json,application/json" hidden>
+        <div class="sidebar-foot">KABAMAN · Gestion commerciale<br>© <span id="year-now"></span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="mobile-brand"><div class="brand-mark small">K</div><strong>KABAMAN</strong></div>
+        <div class="breadcrumbs"><span>Gestion commerciale</span><b>/</b><strong id="page-crumb">Vue d’ensemble</strong></div>
+        <div class="top-actions">
+          <span class="today-chip" id="today-chip"></span>
+          <button class="button button-quiet button-small" data-go="settings">⚙ <span>Réglages</span></button>
+        </div>
+      </header>
+      <section class="page-wrap" id="app-view" aria-live="polite"></section>
+      <footer class="footer-note">Outil de gestion interne · Vérifiez les taux douaniers, fiscaux et les charges selon votre situation.</footer>
+    </main>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="invoice-print" class="invoice-print"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+
